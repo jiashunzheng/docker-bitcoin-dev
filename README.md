@@ -1,3 +1,23 @@
+# docker build
+
+```
+git clone git@github.com:jiashunzheng/docker-bitcoin-dev.git
+docker build -t tc .
+``` 
+
+# use the docker image to compile
+假定timecoin代码库已经下载到~/timecoin
+```
+#进入docker交互模式,将timecoin代码库映射到docker容器中/bitcoin目录
+docker run -ti -v ~/timecoin:/bitcoin tc
+#指定qt版本
+export QT_SELECT="qt5"
+qmake
+make
+```
+
+# 以下内容来自cdecker/docker-bitcoin-dev
+
 # bitcoin-dev Docker Images
 
 Building and developing Bitcoin in docker containers.
